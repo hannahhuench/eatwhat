@@ -1,4 +1,4 @@
-const CACHE = 'swipe-eat-v2';
+const CACHE = 'eatwhat-v2';
 const ASSETS = ['./', 'index.html', 'styles.css', 'lib.js', 'app.js', 'manifest.webmanifest',
   'data/restaurants.csv', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
