@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Swipe &amp; Eat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#ff5a4e">
+<meta name="description" content="Swipe to decide where to eat.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Swipe &amp; Eat">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <button id="btn-menu" class="icon-btn" aria-label="Menu">&#9776;</button>
+    <h1>Swipe &amp; Eat</h1>
+    <button id="btn-filter" class="icon-btn" aria-label="Filters">&#9881;<span id="filter-badge" class="badge" hidden>0</span></button>
+  </header>
+
+  <div id="counter" class="counter" aria-live="polite"></div>
+
+  <main id="stage" class="stage" aria-label="Restaurant cards"></main>
+
+  <div class="actions">
+    <button id="btn-undo" class="round small" aria-label="Undo">&#8630;</button>
+    <button id="btn-no" class="round no" aria-label="No, skip">&#10005;</button>
+    <button id="btn-yes" class="round yes" aria-label="Yes, eat here">&#10003;</button>
+  </div>
+  <p class="hint">Swipe right = yes &middot; left = no</p>
+</div>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<section id="sheet-filter" class="sheet" hidden role="dialog" aria-label="Filters">
+  <div class="sheet-head">
+    <h2>Filters</h2>
+    <button class="link-btn" id="filter-clear">Clear all</button>
+  </div>
+  <div id="filter-body" class="sheet-body"></div>
+  <div class="sheet-foot">
+    <div id="filter-count" class="muted"></div>
+    <button id="filter-apply" class="primary">Show cards</button>
+  </div>
+</section>
+
+<section id="sheet-menu" class="sheet" hidden role="dialog" aria-label="Menu">
+  <div class="sheet-head"><h2>Menu</h2><button class="link-btn" data-close>Close</button></div>
+  <div class="sheet-body">
+    <h3>Past picks</h3>
+    <ul id="history-list" class="history"></ul>
+    <button id="history-clear" class="secondary">Clear history</button>
+    <h3>Your restaurants</h3>
+    <p id="data-info" class="muted"></p>
+    <label class="secondary file-label">Import CSV
+      <input id="file-input" type="file" accept=".csv,text/csv,text/plain" hidden>
+    </label>
+    <button id="data-reset" class="secondary">Use bundled list</button>
+    <button id="unhide" class="secondary">Un-hide hidden places (<span id="hidden-count">0</span>)</button>
+    <p id="menu-msg" class="muted" role="status"></p>
+  </div>
+</section>
+
+<section id="result" class="modal" hidden role="dialog" aria-modal="true" aria-label="Result">
+  <div class="modal-card">
+    <img id="res-photo" class="res-photo" alt="" hidden>
+    <div class="confetti">&#127881;</div>
+    <p class="muted">Tonight you&rsquo;re eating at</p>
+    <h2 id="res-name"></h2>
+    <div id="res-tags" class="tags"></div>
+    <p id="res-info" class="info"></p>
+    <a id="res-link" class="primary link" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+    <button id="res-continue" class="secondary">Not feeling it &ndash; keep swiping</button>
+    <button id="res-again" class="secondary">Start a new round</button>
+    <button id="res-hide" class="link-btn danger">Never suggest this again</button>
+  </div>
+</section>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="lib.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
