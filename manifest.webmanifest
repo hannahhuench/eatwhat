@@ -1,6 +1,6 @@
 {
-  "name": "Swipe & Eat",
-  "short_name": "Swipe&Eat",
+  "name": "Eat What?",
+  "short_name": "EatWhat",
   "description": "Swipe to decide where to eat.",
   "start_url": "./index.html",
   "scope": "./",
