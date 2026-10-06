@@ -66,4 +66,4 @@ button.secondary,label.secondary{display:block;width:100%;text-align:center;bord
 .tag.been{background:#eafaf2;color:#1c8a5a;border-color:#c9efdc}
 .tag.not-been{background:#fff3d8;color:#a66a00;border-color:#f4dc9b}
 
-.hours{margin:7px 0 0;font-size:13px}.hours.open{color:#18864b}.hours.unknown{color:#8a7c76}.tag.food{background:#fff7df;color:#996b00;border-color:#f2df9b}
+.hours{margin:7px 0 0;font-size:13px;color:#6f625d}.tag.food{background:#fff7df;color:#996b00;border-color:#f2df9b}

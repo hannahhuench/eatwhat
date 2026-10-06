@@ -9,13 +9,13 @@
 
   var state = {
     all: [], custom: false, loadError: false,
-    sel: { meals: [], cuisines: [], foods: [], areas: [], occasions: [], prices: [], been: [] },
+    sel: { types: [], foods: [], meals: [], areas: [], occasions: [], prices: [], been: [], openNow: [] },
     hidden: load(KEY.hidden, []),
     history: load(KEY.hist, []),
     deck: [], idx: 0, busy: false, modal: false, sheet: null, temp: null
   };
   var s0 = load(KEY.sel, null);
-  if (s0) ['meals', 'cuisines', 'foods', 'areas', 'occasions', 'prices', 'been'].forEach(function (k) { if (Array.isArray(s0[k])) state.sel[k] = s0[k]; });
+  if (s0) ['types', 'foods', 'meals', 'areas', 'occasions', 'prices', 'been', 'openNow'].forEach(function (k) { if (Array.isArray(s0[k])) state.sel[k] = s0[k]; });
 
   var stage = $('stage');
 
@@ -31,7 +31,7 @@
   }
   function tagsFor(r, parent) {
     r.meals.forEach(function (v) { parent.appendChild(el('span', 'tag meal', v)); });
-    r.cuisines.forEach(function (v) { parent.appendChild(el('span', 'tag', v)); });
+    r.types.forEach(function (v) { parent.appendChild(el('span', 'tag', v)); });
     r.foods.forEach(function (v) { parent.appendChild(el('span', 'tag food', v)); });
     r.areas.forEach(function (v) { parent.appendChild(el('span', 'tag loc', '\uD83D\uDCCD ' + v)); });
     r.occasions.forEach(function (v) { parent.appendChild(el('span', 'tag occ', v)); });
@@ -44,19 +44,27 @@
 
   }
 
-  
-  function hoursText(r) {
-    if (!r.hours) return '';
-    var d = ['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()];
-    var v = r.hours[d] || '';
-    if (!v) return '⚪ Hours unavailable';
-    if (/^closed$/i.test(v.trim())) return '🔴 Closed today';
-    return '🕒 ' + v;
+    function parsePeriods(v) {
+    return String(v || '').trim().split(/[;|]/).map(function (part) {
+      var m = part.trim().match(/^(\d{1,2}):(\d{2})\s*[-–]\s*(\d{1,2}):(\d{2})$/);
+      if (!m) return null;
+      var a=Number(m[1])*60+Number(m[2]), b=Number(m[3])*60+Number(m[4]);
+      return a>=0&&a<1440&&b>=0&&b<1440 ? {start:a,end:b} : null;
+    }).filter(Boolean);
+  }
+  function isOpenNow(r) {
+    var day=['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()];
+    var now=new Date(), minute=now.getHours()*60+now.getMinutes();
+    return parsePeriods(r.hours && r.hours[day]).some(function(p){
+      return p.start<=p.end ? minute>=p.start&&minute<p.end : minute>=p.start||minute<p.end;
+    });
   }
 
   /* ---------- deck ---------- */
   function startRound() {
-    state.deck = FF.shuffle(FF.filterRestaurants(state.all, state.sel, state.hidden));
+    var available = FF.filterRestaurants(state.all, state.sel, state.hidden);
+    if (state.sel.openNow && state.sel.openNow.length) available = available.filter(isOpenNow);
+    state.deck = FF.shuffle(available);
     state.idx = 0; state.busy = false;
     render();
   }
@@ -104,7 +112,7 @@
       c.appendChild(el('h2', '', r.name));
       var tg = el('div', 'tags'); tagsFor(r, tg); c.appendChild(tg);
       if (r.info) c.appendChild(el('p', 'info', r.info));
-      var ht = hoursText(r); if (ht) c.appendChild(el('p', 'hours ' + (ht.indexOf('🟢') >= 0 ? 'open' : 'unknown'), ht));
+      var hv = r.hours && r.hours[['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()]]; if (hv) c.appendChild(el('p', 'hours', '🕒 ' + hv));
       if (depth === 0) { c.classList.add('top'); attachDrag(c, yes, no); }
       else {
         c.style.transform = 'translateY(' + (depth * 10) + 'px) scale(' + (1 - depth * 0.04) + ')';
@@ -230,11 +238,11 @@
     state.sheet = null; state.temp = null;
   }
 
-  var FACETS = [['meals', 'Meal'], ['cuisines', 'Cuisine'], ['foods', 'Food'], ['areas', 'Area'], ['prices', 'Price'], ['been', 'Been'], ['occasions', 'Occasion']];
+  var FACETS = [['meals', 'Meal'], ['types', 'Cuisine'], ['foods', 'Food'], ['areas', 'Area'], ['prices', 'Price'], ['been', 'Been'], ['occasions', 'Occasion'], ['openNow', 'Availability']];
   function drawFilters() {
     var f = FF.facetsOf(state.all), body = $('filter-body'); body.innerHTML = '';
     FACETS.forEach(function (p) {
-      var vals = f[p[0]];
+      var vals = p[0] === 'openNow' ? ['Open now'] : f[p[0]];
       if (!vals.length) return;
       body.appendChild(el('h3', '', p[1]));
       var wrap = el('div', 'chips');
@@ -256,11 +264,13 @@
     updateFilterCount();
   }
   function updateFilterCount() {
-    var n = FF.filterRestaurants(state.all, state.temp, state.hidden).length;
+    var candidate = FF.filterRestaurants(state.all, state.temp, state.hidden);
+    if (state.temp.openNow && state.temp.openNow.length) candidate = candidate.filter(isOpenNow);
+    var n = candidate.length;
     $('filter-count').textContent = n + (n === 1 ? ' place matches' : ' places match');
     $('filter-apply').disabled = n === 0;
   }
-  function selCount(s) { return s.meals.length + s.cuisines.length + s.foods.length + s.areas.length + s.occasions.length + s.prices.length + s.been.length; }
+  function selCount(s) { return s.types.length + s.foods.length + s.meals.length + s.areas.length + s.occasions.length + s.prices.length + s.been.length + s.openNow.length; }
   function updateBadge() {
     var n = selCount(state.sel), b = $('filter-badge');
     b.textContent = n; b.hidden = n === 0;
@@ -271,7 +281,7 @@
   $('backdrop').onclick = function () { closeSheet(); };
   document.querySelectorAll('[data-close]').forEach(function (b) { b.onclick = function () { closeSheet(); }; });
   $('filter-clear').onclick = function () {
-    state.temp = { meals: [], cuisines: [], foods: [], areas: [], occasions: [], prices: [], been: [] };
+    state.temp = { types: [], foods: [], meals: [], areas: [], occasions: [], prices: [], been: [], openNow: [] };
     drawFilters();
   };
   $('filter-apply').onclick = function () {
@@ -307,7 +317,7 @@
       if (!list.length) { $('menu-msg').textContent = 'No restaurants found. The CSV needs a header row with a Name (or Title) column.'; return; }
       try { localStorage.setItem(KEY.data, String(rd.result)); } catch (x) {}
       setData(list, true);
-      state.sel = { meals: [], cuisines: [], foods: [], areas: [], occasions: [], prices: [], been: [] }; save(KEY.sel, state.sel);
+      state.sel = { types: [], foods: [], meals: [], areas: [], occasions: [], prices: [], been: [], openNow: [] }; save(KEY.sel, state.sel);
       drawMenu(); startRound();
       $('menu-msg').textContent = 'Imported ' + list.length + ' restaurants.';
     };
