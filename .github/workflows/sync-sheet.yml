@@ -1,0 +1,34 @@
+name: Sync restaurants from Google Sheet
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download CSV
+        env:
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+        run: |
+          curl -L --fail --silent --show-error "$SHEET_CSV_URL" -o /tmp/new.csv
+          test -s /tmp/new.csv
+          head -1 /tmp/new.csv | grep -qi 'title'
+          test "$(wc -l < /tmp/new.csv)" -ge 5
+          cp /tmp/new.csv data/restaurants.csv
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet; then echo "No changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/restaurants.csv
+          git commit -m "Sync restaurants from Google Sheet"
+          git push
