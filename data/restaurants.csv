@@ -1,8 +1,8 @@
 Title,Meal,Cuisine,Food,Area,Price,Occasion,Been,Note,Mon,Tue,Wed,Thu,Fri,Sat,Sun,Photo,URL
-Lookout Noodle,Lunch; Dinner,Chinese,Noodles,Tsim Sha Tsui,$$,,,,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,photos/lookout.jpg,https://www.google.com/maps/place/Lookout+Noodle/data=!4m2!3m1!1s0x340401c9d6a501f3:0xf91e146f174129cf
-Cleo's,Light; Lunch; Dinner,Western; Cafe,,Sheung Wan,$$$,,,,11:30-22:00,Closed,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,photos/cleo's.jpg,https://www.google.com/maps/place/Cleo's/data=!4m2!3m1!1s0x3404011febf4a7f1:0x7cab4b04efa0c377
-aera,Lunch; Dinner,Western; Fine Dining,,Central,$$$$$,Date; Celebration,,,,,,,,,,photos/aera.jpg,https://www.google.com/maps/place/aera/data=!4m2!3m1!1s0x340401bf6b42691f:0x94286d2b9b3259c6
-629 Egg Waffle,Light,Street Food,雞蛋仔,San Po Kong,$,,,,,,,,,,,photos/629-egg-waffle.jpg,https://www.google.com/maps/place/629+Egg+Waffle/data=!4m2!3m1!1s0x340406d12e5bcc1f:0xd0201be90a7fd945
+Lookout Noodle,Lunch; Dinner,Chinese,Noodles,Tsim Sha Tsui,$$,,,,12:00–21:00,12:00–21:00,12:00–21:00,12:00–21:00,12:00–21:00,12:00–21:00,Closed,photos/lookout.jpg,https://www.google.com/maps/place/Lookout+Noodle/data=!4m2!3m1!1s0x340401c9d6a501f3:0xf91e146f174129cf
+Cleo's,Light; Lunch; Dinner,Western; Cafe,,Sheung Wan,$$$,,,,09:30–17:00,Closed,Closed,09:30–17:00,09:30–17:00,09:30–17:00,09:30–17:00,photos/cleo's.jpg,https://www.google.com/maps/place/Cleo's/data=!4m2!3m1!1s0x3404011febf4a7f1:0x7cab4b04efa0c377
+aera,Lunch; Dinner,Western; Fine Dining,,Central,$$$$$,Date; Celebration,,,18:00–22:30,18:00–22:30,12:00–15:00;18:00–22:30,12:00–15:00;18:00–22:30,12:00–15:00;18:00–22:30,12:00–15:00;18:00–22:30,Closed,photos/aera.jpg,https://www.google.com/maps/place/aera/data=!4m2!3m1!1s0x340401bf6b42691f:0x94286d2b9b3259c6
+629 Egg Waffle,Light,Street Food,雞蛋仔,San Po Kong,$,,,,12:00–19:00,12:00–19:00,12:00–19:00,12:00–19:00,12:00–19:00,12:00–19:00,Closed,photos/629-egg-waffle.jpg,https://www.google.com/maps/place/629+Egg+Waffle/data=!4m2!3m1!1s0x340406d12e5bcc1f:0xd0201be90a7fd945
 The Spoon Focaccia,Lunch; Dinner,Italian,Focaccia,temp,$$,,,,,,,,,,,photos/the-spoon.jpg,https://www.google.com/maps/place/The+Spoon+Focaccia/data=!4m2!3m1!1s0x340401007f8c0adb:0xf94c361fc5b45933
 Chew Chew,Lunch; Dinner,Japanese,,temp,,,,,,,,,,,,photos/chew-chew.jpg,https://www.google.com/maps/place/Chew+Chew/data=!4m2!3m1!1s0x340401c5f32c8315:0xa27a331e32f5d8e2
 Comptoir,Lunch; Dinner,French; Wine Bar,,temp,,,,,,,,,,,,photos/comptoir.jpg,https://www.google.com/maps/place/Comptoir/data=!4m2!3m1!1s0x3403ff90b1795c07:0xd5c18206bbda4465
@@ -13,7 +13,6 @@ IN SAENG PORK SOUP,Lunch; Dinner,Korean,,Central,,,,,,,,,,,,,https://www.google.
 BÀRBAR,Lunch; Dinner,Spanish,,Wan Chai,,,,,,,,,,,,,https://www.google.com/maps/place/B%C3%80RBAR/data=!4m2!3m1!1s0x3404018bdc00ab59:0x8e38bb92321be7e1
 ThongSmith Hong Kong,Lunch; Dinner,Thai,,Wan Chai,,,,,,,,,,,,,https://www.google.com/maps/place/ThongSmith+Hong+Kong/data=!4m2!3m1!1s0x340401dcd24e9219:0xd4ccf527ae05285
 金氏炒碼麵 짬뽕짬뽕,,Korean,Noodles,Central,,,,,,,,,,,,,https://www.google.com/maps/place/%E9%87%91%E6%B0%8F%E7%82%92%E7%A2%BC%E9%BA%B5+%EC%A7%AC%EB%BD%95%EC%A7%AC%EB%BD%95/data=!4m2!3m1!1s0x340401003b0804c1:0xb8a25ec6ad81e663
-常聚麵家,,Chinese,Noodles,San Po Kong,,,,,,,,,,,,,https://www.google.com/maps/place/%E5%B8%B8%E8%81%9A%E9%BA%B5%E5%AE%B6/data=!4m2!3m1!1s0x340407004d23921f:0x4d657fb4cb4966e6
 TABIÀ,,Italian,,Mid-Levels,,,,,,,,,,,,,https://www.google.com/maps/place/TABI%C3%80/data=!4m2!3m1!1s0x3404007bab371911:0x737b8175ee0896ce
 Camper's,,Japanese,,Quarry Bay,,,,,,,,,,,,,https://www.google.com/maps/place/Camper's/data=!4m2!3m1!1s0x3404010c6dbcc057:0x11e91e918720acc0
 금성 金星,,Korean,,Sheung Wan,,,,,,,,,,,,,https://www.google.com/maps/place/%EA%B8%88%EC%84%B1(%ED%95%9C%EC%8B%9D)/data=!4m2!3m1!1s0x340401005adaaae7:0x73b0b8b03505abdc
@@ -35,7 +34,7 @@ Grandma Wong黃,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Grandm
 Wa-En Yakiniku,,Japanese; Yakiniku,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Wa-En+Yakiniku/data=!4m2!3m1!1s0x340400ed46d1d8a9:0x697a8aba0d67df84
 Min Jun,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Min+Jun/data=!4m2!3m1!1s0x340401cc57960589:0x72e8dc40642464b4
 La Vache! SoHo,,temp,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/La+Vache!+SoHo/data=!4m2!3m1!1s0x3404007b9fbcb831:0xa9b775778688d120
-Hakka Shop,,Chinese,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/Hakka+Shop/data=!4m2!3m1!1s0x3404007c55555555:0x26828255e23bb3a9
+雞工房,,Chinese,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/Hakka+Shop/data=!4m2!3m1!1s0x3404007c55555555:0x26828255e23bb3a9
 玖鉞食堂,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/%E7%8E%96%E9%89%9E%E9%A3%9F%E5%A0%82/data=!4m2!3m1!1s0x34040148fc953bed:0x46b8b917d33a52d4
 Min Gaa,,Chinese,Noodles,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Min+Gaa/data=!4m2!3m1!1s0x340401aac077e421:0x9919466a8a00d049
 涼茶鋪 Lounge Cha,,Tea,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/%E6%B6%BC%E8%8C%B6%E9%8B%AA+Lounge+Cha/data=!4m2!3m1!1s0x340401fe76a66219:0x9b9eaaf1f7ed5e91
@@ -45,10 +44,10 @@ The Ice Cream & Cookie Co.,,Dessert,,temp,,,,,,,,,,,,,https://www.google.com/map
 Palace Kitchen,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Palace+Kitchen/data=!4m2!3m1!1s0x340401456d1aaaab:0x8b9299899edf880e
 Big Light,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Big+Light/data=!4m2!3m1!1s0x340401839aab3987:0xdf17ce141b19a210
 ATARAYO,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/ATARAYO/data=!4m2!3m1!1s0x3403ffbc87553951:0x6b22cad9c3067c26
-中環飯店 Pedder Chinese,,Chinese,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/%E4%B8%AD%E7%92%B0%E9%A3%AF%E5%BA%97+Pedder+Chinese/data=!4m2!3m1!1s0x340401aeff119b7f:0xd6448704d76fdb79
+中環飯店 Pedder Chinese,Lunch; Dinner,Chinese,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/%E4%B8%AD%E7%92%B0%E9%A3%AF%E5%BA%97+Pedder+Chinese/data=!4m2!3m1!1s0x340401aeff119b7f:0xd6448704d76fdb79
 Sleep Well Eat More,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Sleep+Well+Eat+More/data=!4m2!3m1!1s0x3403ff1e03ca0a63:0x4aaba265952850b3
 Flagship,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Flagship/data=!4m2!3m1!1s0x340401ba50050869:0x88724e85346a3b27
-家傳餃子 Amaze Dumplings,,Fusion,餃子,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Amaze+Dumplings/data=!4m2!3m1!1s0x340401ece29e16d3:0xb6d1dcd3fe43e3db
+家傳餃子 Amaze Dumplings,Lunch; Light,Fusion,餃子,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Amaze+Dumplings/data=!4m2!3m1!1s0x340401ece29e16d3:0xb6d1dcd3fe43e3db
 登登登凳,Snack,Street Food,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/%E7%99%BB%E7%99%BB%E7%99%BB%E5%87%B3/data=!4m2!3m1!1s0x34040192d655eeef:0x9c7dffc513b2d1d9
 Apgujeong Tent Bar,,Korean,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Apgujeong+Tent+Bar/data=!4m2!3m1!1s0x340400ee9f723a4d:0x4d754bc8acad03cf
 Shuran Japanese Restaurant,,Japanese,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Shuran+Japanese+Restaurant/data=!4m2!3m1!1s0x340401f4bf2feb49:0x9df27db940f587f0
@@ -65,7 +64,7 @@ Sonamu Korean Restaurant,Lunch; Dinner,Korean,,Jordan,,,,,,,,,,,,,https://www.go
 Yuen Hing Restaurant,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Yuen+Hing+Restaurant/data=!4m2!3m1!1s0x3404007cc3adf4a3:0x222ed5ee48b645f0
 LOUISE,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/LOUISE/data=!4m2!3m1!1s0x340401734da2a377:0x23ee2d6771fbde35
 The jeju black,Lunch; Dinner,Korean,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/The+jeju+black/data=!4m2!3m1!1s0x340401000917365f:0x3803cde20855c4b8
-Half by Involtini,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Half+by+Involtini/data=!4m2!3m1!1s0x3403fb27885d7219:0x6acc5d10f1ff254f
+Half by Involtini,,Western,Pasta,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Half+by+Involtini/data=!4m2!3m1!1s0x3403fb27885d7219:0x6acc5d10f1ff254f
 Dear Grey,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Dear+Grey/data=!4m2!3m1!1s0x340401dd5165131d:0xcf22e6c4ee01ffae
 Yakiniku Great (中環SOHO店),Lunch; Dinner,Japanese; Yakiniku,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/Yakiniku+Great+(%E4%B8%AD%E7%92%B0SOHO%E5%BA%97)/data=!4m2!3m1!1s0x34040101fc46c2b1:0x4763e395ae740aad
 Unagi Yondaime Kikukawa Causeway Bay,,Japanese,,Causeway Bay,,,,,,,,,,,,,https://www.google.com/maps/place/Unagi+Yondaime+Kikukawa+Causeway+Bay/data=!4m2!3m1!1s0x34040100165fc4c7:0xcef3eda3d77d5557
@@ -77,9 +76,9 @@ Gatten Sushi,,Japanese; Sushi,,temp,,,,,,,,,,,,,https://www.google.com/maps/plac
 Tamarind,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Tamarind/data=!4m2!3m1!1s0x340401000d04d23d:0xb814a65d57b32c14
 Trojan Food Club - TKO,,temp,,Tseung Kwan O,,,,,,,,,,,,,https://www.google.com/maps/place/Trojan+Food+Club+-+TKO/data=!4m2!3m1!1s0x34040334184b1a81:0xdd848c339346c865
 Tori Yoichi,,Japanese,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Tori+Yoichi/data=!4m2!3m1!1s0x34040122644bb4ef:0x1c30a3e5faef38a7
-C108,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/C108/data=!4m2!3m1!1s0x340401872bbf53f7:0xdc9002856466a886
+C108,,Coffee; 酒 ,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/C108/data=!4m2!3m1!1s0x340401872bbf53f7:0xdc9002856466a886
 Mercury Recalls By Lost Stars,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Mercury+Recalls+By+Lost+Stars/data=!4m2!3m1!1s0x340401cca8c00b99:0xcdc01c5180e6da5e
-ZOZZONA,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/ZOZZONA/data=!4m2!3m1!1s0x340401e2352cd8bd:0xe832881cb3cf4d3a
+ZOZZONA,Lunch; Dinner,Japanese,Pasta,temp,,,,,,,,,,,,,https://www.google.com/maps/place/ZOZZONA/data=!4m2!3m1!1s0x340401e2352cd8bd:0xe832881cb3cf4d3a
 La Itameshi HK,,Italian,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/La+Itameshi+HK/data=!4m2!3m1!1s0x340403247215301b:0x7d4fbb91e57db851
 Yeon Nam Dong,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Yeon+Nam+Dong/data=!4m2!3m1!1s0x3403ff001db94423:0x85cf475a5b4be667
 川品雲南米線,,Yunnan,Noodles,temp,,,,,,,,,,,,,https://www.google.com/maps/place/%E5%B7%9D%E5%93%81%E9%9B%B2%E5%8D%97%E7%B1%B3%E7%B7%9A/data=!4m2!3m1!1s0x340400b82e0f1589:0x5d555d4c34bf908
@@ -139,7 +138,7 @@ Tin Kee Dumplings,,Chinese,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/T
 Thai Boys,,Thai,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Thai+Boys/data=!4m2!3m1!1s0x340401c97006253b:0x4adaa06290a259fc
 Fika Restaurant & BAR,,Bar,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Fika+Restaurant+%26+BAR/data=!4m2!3m1!1s0x340404746bd52ea5:0xadb96b529872081
 CICLO,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/CICLO/data=!4m2!3m1!1s0x3404010b9f4e4c0b:0x6cb7e88ccf520e85
-幕多,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/%E5%B9%95%E5%A4%9A/data=!4m2!3m1!1s0x34040100792f023f:0x7431a53678a5a2df
+幕多,,Japanese,Ramen,Tsim Sha Tsui,,,,,,,,,,,,,https://www.google.com/maps/place/%E5%B9%95%E5%A4%9A/data=!4m2!3m1!1s0x34040100792f023f:0x7431a53678a5a2df
 Mama Tiger Noodles,,Thai,Noodles,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Mama+Tiger+Noodles/data=!4m2!3m1!1s0x340401648988f9c1:0xb86547fcb208a517
 BANPO Korean BBQ,,Korean,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/BANPO+Korean+BBQ/data=!4m2!3m1!1s0x3404016b71e3aa99:0xe57e3a22350dec5b
 Sofi Pasta Co.,,Italian,,Sheung Wan,,,,,,,,,,,,,https://www.google.com/maps/place/Sofi+Pasta+Co./data=!4m2!3m1!1s0x34040113144975d1:0x6e37b2937ddfb85d
@@ -151,7 +150,7 @@ By the O Studio,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/By+the
 BUSAN NIGHT,,Korean,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/BUSAN+NIGHT/data=!4m2!3m1!1s0x340401b46e1a1619:0x9583f471b3ec411
 Bourke's,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Bourke's/data=!4m2!3m1!1s0x340401d0dce3e8cd:0x6ad74ab4d89ce854
 Q1 Vietnamese Breads & Dessert,,Vietnamese,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Q1+Vietnamese+Breads+%26+Dessert/data=!4m2!3m1!1s0x3404018afd178e0f:0xf4c7fe1208d3ecda
-Emmer Pizzeria & Café,,Pizza; Cafe,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Emmer+Pizzeria+%26+Caf%C3%A9/data=!4m2!3m1!1s0x340401a218b0e3dd:0x9c77049819f474e0
+Emmer Pizzeria & Café,,Western,Pizza,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Emmer+Pizzeria+%26+Caf%C3%A9/data=!4m2!3m1!1s0x340401a218b0e3dd:0x9c77049819f474e0
 餃串Party,,Chinese,餃子,temp,,,,,,,,,,,,,https://www.google.com/maps/place/%E9%A4%83%E4%B8%B2Party/data=!4m2!3m1!1s0x340407b7a02ead97:0x3f0eb64d6feb65a8
 HoHon Eatery,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/HoHon+Eatery/data=!4m2!3m1!1s0x3403fffe1daf9155:0xb1689cdaebc30f2f
 Samsic,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Samsic/data=!4m2!3m1!1s0x340401000b711489:0x2a7604ad65af8847
@@ -161,7 +160,7 @@ Sepoy Mess,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Sepoy+Mess/
 Nikuya,,temp,,Tsim Sha Tsui,,,,,,,,,,,,,https://www.google.com/maps/place/Nikuya/data=!4m2!3m1!1s0x340401622ecfa669:0xd08add6738239b1d
 Grissini,,temp,,Wan Chai,,,,,,,,,,,,,https://www.google.com/maps/place/Grissini/data=!4m2!3m1!1s0x3404005ea2ffa793:0x2e7facd0fd2a9146
 Gamtai 金太 깜타이,,Korean,,Tsim Sha Tsui,,,,,,,,,,,,,https://www.google.com/maps/place/Gamtai+%E9%87%91%E5%A4%AA+%EA%B9%9C%ED%83%80%EC%9D%B4/data=!4m2!3m1!1s0x3404011463067f37:0x4f8e0a36613af9e9
-Won Pung Won Korean Restaurant,,Korean,,Tsim Sha Tsui,,,,飯堂,,,,,,,,,https://www.google.com/maps/place/Won+Pung+Won+Korean+Restaurant/data=!4m2!3m1!1s0x340400ee69bc9bfd:0x3a4c0dd3b631aa7a
+Won Pung Won Korean Restaurant,,Korean,韓燒; Soup,Tsim Sha Tsui,,Daily; Poly,,飯堂,,,,,,,,,https://www.google.com/maps/place/Won+Pung+Won+Korean+Restaurant/data=!4m2!3m1!1s0x340400ee69bc9bfd:0x3a4c0dd3b631aa7a
 新天地美食,,temp,,Tsim Sha Tsui,,,,,,,,,,,,,https://www.google.com/maps/place/%E6%96%B0%E5%A4%A9%E5%9C%B0%E7%BE%8E%E9%A3%9F/data=!4m2!3m1!1s0x340400e93322942d:0x2f2b67f319b3c65a
 露面拌麵料理,,Noodles,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/%E9%9C%B2%E9%9D%A2%E6%8B%8C%E9%BA%B5%E6%96%99%E7%90%86/data=!4m2!3m1!1s0x340401005287dc6f:0xcc3c768e30151063
 Pachanga,,temp,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Pachanga/data=!4m2!3m1!1s0x3403fd6ba5792543:0xfc699642b46ac9ae
