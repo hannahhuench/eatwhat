@@ -45,7 +45,8 @@
     occasion: ['occasion', 'occasions', 'vibe', 'mood', 'meal'],
     price: ['price', 'price range', 'budget', 'cost'],
     tags: ['tags', 'tag', 'labels', 'label'],
-    photo: ['photo', 'image', 'picture', 'img', 'photo url', 'image url', 'pic']
+    photo: ['photo', 'image', 'picture', 'img', 'photo url', 'image url', 'pic'],
+    been: ['been', 'visited', 'have been', 'tried']
   };
 
   function headerKey(h) {
@@ -90,6 +91,7 @@
         info: info,
         url: url,
         photo: cleanPhoto(o.photo),
+        been: (o.been || '').trim(),
         types: types,
         areas: splitList(o.area),
         occasions: splitList(o.occasion),

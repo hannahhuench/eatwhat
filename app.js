@@ -34,6 +34,12 @@
     r.areas.forEach(function (v) { parent.appendChild(el('span', 'tag loc', '\uD83D\uDCCD ' + v)); });
     r.occasions.forEach(function (v) { parent.appendChild(el('span', 'tag occ', v)); });
     if (r.price) parent.appendChild(el('span', 'tag price', r.price));
+    if (r.been === 'Yes') {
+      parent.appendChild(el('span', 'tag been', '✓ Been here'));
+  } else if (r.been === 'No') {
+      parent.appendChild(el('span', 'tag not-been', '✦ Not tried'));
+  }
+
   }
 
   /* ---------- deck ---------- */
