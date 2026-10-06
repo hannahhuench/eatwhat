@@ -40,9 +40,10 @@
     info: ['info', 'note', 'notes', 'description', 'about', 'summary'],
     comment: ['comment', 'comments'],
     url: ['url', 'link', 'maps', 'map', 'google maps', 'maps url', 'map url', 'google maps url'],
-    type: ['type', 'types', 'cuisine', 'category', 'food'],
+    cuisine: ['cuisine', 'cuisines', 'type', 'types', 'category', 'food'],
     area: ['area', 'location', 'district', 'neighbourhood', 'neighborhood', 'region'],
-    occasion: ['occasion', 'occasions', 'vibe', 'mood', 'meal'],
+    meal: ['meal', 'meals'],
+    occasion: ['occasion', 'occasions', 'vibe', 'mood'],
     price: ['price', 'price range', 'budget', 'cost'],
     tags: ['tags', 'tag', 'labels', 'label'],
     photo: ['photo', 'image', 'picture', 'img', 'photo url', 'image url', 'pic'],
@@ -82,8 +83,8 @@
         if (k && o[k] === undefined && rows[r][c] !== undefined) o[k] = String(rows[r][c]).trim();
       }
       if (!o.name) continue;
-      var types = splitList(o.type);
-      if (!types.length) types = splitList(o.tags);
+      var cuisine = splitList(o.cuisine);
+      if (!cuisine.length) cuisine = splitList(o.tags);
       var info = [o.info, o.comment].filter(Boolean).join(' \u00B7 ');
       var url = isHttp(o.url) ? o.url : '';
       var rest = {
@@ -92,7 +93,8 @@
         url: url,
         photo: cleanPhoto(o.photo),
         been: (o.been || '').trim(),
-        types: types,
+        cuisines: cuisine,
+        meals: splitList(o.meal),
         areas: splitList(o.area),
         occasions: splitList(o.occasion),
         price: (o.price || '').trim()
@@ -108,10 +110,11 @@
   function parseRestaurants(text) { return toRestaurants(parseCSV(text)); }
 
   function facetsOf(list) {
-    var f = { types: {}, areas: {}, occasions: {}, prices: {} };
+    var f = { meals: {}, cuisines: {}, areas: {}, prices: {}, been: {}, occasions: {} };
     function add(bucket, v) { var k = v.toLowerCase(); if (!bucket[k]) bucket[k] = v; }
     list.forEach(function (r) {
-      r.types.forEach(function (v) { add(f.types, v); });
+      r.meals.forEach(function (v) { add(f.meals, v); });
+      r.cuisines.forEach(function (v) { add(f.cuisines, v); });
       r.areas.forEach(function (v) { add(f.areas, v); });
       r.occasions.forEach(function (v) { add(f.occasions, v); });
       if (r.price) add(f.prices, r.price);
@@ -120,7 +123,7 @@
     function prices(b) {
       return Object.keys(b).sort(function (a, c) { return a.length - c.length || (a < c ? -1 : 1); }).map(function (k) { return b[k]; });
     }
-    return { types: arr(f.types), areas: arr(f.areas), occasions: arr(f.occasions), prices: prices(f.prices) };
+    return { meals: arr(f.meals), cuisines: arr(f.cuisines), areas: arr(f.areas), prices: prices(f.prices), been: arr(f.been), occasions: arr(f.occasions) };
   }
 
   function lowerSet(a) { var s = {}; (a || []).forEach(function (v) { s[String(v).toLowerCase()] = 1; }); return s; }
@@ -128,14 +131,16 @@
 
   function filterRestaurants(list, sel, hiddenIds) {
     sel = sel || {};
-    var t = lowerSet(sel.types), a = lowerSet(sel.areas), o = lowerSet(sel.occasions), p = lowerSet(sel.prices);
+    var m = lowerSet(sel.meals), c = lowerSet(sel.cuisines), a = lowerSet(sel.areas), o = lowerSet(sel.occasions), p = lowerSet(sel.prices), b = lowerSet(sel.been);
     var hidSet = {}; (hiddenIds || []).forEach(function (id) { hidSet[id] = 1; });
     var has = function (s) { return Object.keys(s).length > 0; };
     return list.filter(function (r) {
       if (hidSet[r.id]) return false;
-      if (has(t) && !anyIn(r.types, t)) return false;
+      if (has(m) && !anyIn(r.meals, m)) return false;
+      if (has(c) && !anyIn(r.cuisines, c)) return false;
       if (has(a) && !anyIn(r.areas, a)) return false;
       if (has(o) && !anyIn(r.occasions, o)) return false;
+      if (has(b) && String(r.been || '').toLowerCase() !== Object.keys(b)[0]) return false;
       if (has(p) && !(r.price && p[r.price.toLowerCase()])) return false;
       return true;
     });
@@ -171,7 +176,7 @@
     [/western|steak|french/i, '\uD83E\uDD69']
   ];
   function emojiFor(r) {
-    var s = r.types.join(' ') + ' ' + r.name;
+    var s = r.cuisines.join(' ') + ' ' + r.name;
     for (var i = 0; i < EMOJI.length; i++) if (EMOJI[i][0].test(s)) return EMOJI[i][1];
     return '\uD83C\uDF7D\uFE0F';
   }

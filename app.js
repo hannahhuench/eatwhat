@@ -9,13 +9,13 @@
 
   var state = {
     all: [], custom: false, loadError: false,
-    sel: { types: [], areas: [], occasions: [], prices: [] },
+    sel: { meals: [], cuisines: [], areas: [], occasions: [], prices: [], been: [] },
     hidden: load(KEY.hidden, []),
     history: load(KEY.hist, []),
     deck: [], idx: 0, busy: false, modal: false, sheet: null, temp: null
   };
   var s0 = load(KEY.sel, null);
-  if (s0) ['types', 'areas', 'occasions', 'prices'].forEach(function (k) { if (Array.isArray(s0[k])) state.sel[k] = s0[k]; });
+  if (s0) ['meals', 'cuisines', 'areas', 'occasions', 'prices', 'been'].forEach(function (k) { if (Array.isArray(s0[k])) state.sel[k] = s0[k]; });
 
   var stage = $('stage');
 
@@ -30,7 +30,8 @@
     clearTimeout(toast.t); toast.t = setTimeout(function () { t.hidden = true; }, 2200);
   }
   function tagsFor(r, parent) {
-    r.types.forEach(function (v) { parent.appendChild(el('span', 'tag', v)); });
+    r.meals.forEach(function (v) { parent.appendChild(el('span', 'tag meal', v)); });
+    r.cuisines.forEach(function (v) { parent.appendChild(el('span', 'tag', v)); });
     r.areas.forEach(function (v) { parent.appendChild(el('span', 'tag loc', '\uD83D\uDCCD ' + v)); });
     r.occasions.forEach(function (v) { parent.appendChild(el('span', 'tag occ', v)); });
     if (r.price) parent.appendChild(el('span', 'tag price', r.price));
@@ -217,7 +218,7 @@
     state.sheet = null; state.temp = null;
   }
 
-  var FACETS = [['types', 'Type'], ['areas', 'Location'], ['occasions', 'Occasion'], ['prices', 'Price']];
+  var FACETS = [['meals', 'Meal'], ['cuisines', 'Cuisine'], ['areas', 'Area'], ['prices', 'Price'], ['been', 'Been'], ['occasions', 'Occasion']];
   function drawFilters() {
     var f = FF.facetsOf(state.all), body = $('filter-body'); body.innerHTML = '';
     FACETS.forEach(function (p) {
@@ -247,7 +248,7 @@
     $('filter-count').textContent = n + (n === 1 ? ' place matches' : ' places match');
     $('filter-apply').disabled = n === 0;
   }
-  function selCount(s) { return s.types.length + s.areas.length + s.occasions.length + s.prices.length; }
+  function selCount(s) { return s.meals.length + s.cuisines.length + s.areas.length + s.occasions.length + s.prices.length + s.been.length; }
   function updateBadge() {
     var n = selCount(state.sel), b = $('filter-badge');
     b.textContent = n; b.hidden = n === 0;
@@ -258,7 +259,7 @@
   $('backdrop').onclick = function () { closeSheet(); };
   document.querySelectorAll('[data-close]').forEach(function (b) { b.onclick = function () { closeSheet(); }; });
   $('filter-clear').onclick = function () {
-    state.temp = { types: [], areas: [], occasions: [], prices: [] };
+    state.temp = { meals: [], cuisines: [], areas: [], occasions: [], prices: [], been: [] };
     drawFilters();
   };
   $('filter-apply').onclick = function () {
@@ -294,7 +295,7 @@
       if (!list.length) { $('menu-msg').textContent = 'No restaurants found. The CSV needs a header row with a Name (or Title) column.'; return; }
       try { localStorage.setItem(KEY.data, String(rd.result)); } catch (x) {}
       setData(list, true);
-      state.sel = { types: [], areas: [], occasions: [], prices: [] }; save(KEY.sel, state.sel);
+      state.sel = { meals: [], cuisines: [], areas: [], occasions: [], prices: [], been: [] }; save(KEY.sel, state.sel);
       drawMenu(); startRound();
       $('menu-msg').textContent = 'Imported ' + list.length + ' restaurants.';
     };
