@@ -89,7 +89,7 @@
         box.appendChild(b1);
       } else {
         box.appendChild(el('div', 'big', '\uD83E\uDD37'));
-        box.appendChild(el('h2', '', '咩都唔想食不如食屎？'));
+        box.appendChild(el('h2', '', '咩都唔啱食不如食屎？'));
         box.appendChild(el('p', 'muted', 'Nothing caught your eye. Reshuffle, or change the filters.'));
         var b2 = el('button', 'primary', 'Reshuffle'); b2.id = 'empty-reshuffle';
         b2.onclick = startRound;
