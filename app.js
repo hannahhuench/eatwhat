@@ -9,13 +9,13 @@
 
   var state = {
     all: [], custom: false, loadError: false,
-    sel: { meals: [], cuisines: [], areas: [], occasions: [], prices: [], been: [] },
+    sel: { meals: [], cuisines: [], foods: [], areas: [], occasions: [], prices: [], been: [] },
     hidden: load(KEY.hidden, []),
     history: load(KEY.hist, []),
     deck: [], idx: 0, busy: false, modal: false, sheet: null, temp: null
   };
   var s0 = load(KEY.sel, null);
-  if (s0) ['meals', 'cuisines', 'areas', 'occasions', 'prices', 'been'].forEach(function (k) { if (Array.isArray(s0[k])) state.sel[k] = s0[k]; });
+  if (s0) ['meals', 'cuisines', 'foods', 'areas', 'occasions', 'prices', 'been'].forEach(function (k) { if (Array.isArray(s0[k])) state.sel[k] = s0[k]; });
 
   var stage = $('stage');
 
@@ -32,6 +32,7 @@
   function tagsFor(r, parent) {
     r.meals.forEach(function (v) { parent.appendChild(el('span', 'tag meal', v)); });
     r.cuisines.forEach(function (v) { parent.appendChild(el('span', 'tag', v)); });
+    r.foods.forEach(function (v) { parent.appendChild(el('span', 'tag food', v)); });
     r.areas.forEach(function (v) { parent.appendChild(el('span', 'tag loc', '\uD83D\uDCCD ' + v)); });
     r.occasions.forEach(function (v) { parent.appendChild(el('span', 'tag occ', v)); });
     if (r.price) parent.appendChild(el('span', 'tag price', r.price));
@@ -41,6 +42,16 @@
       parent.appendChild(el('span', 'tag not-been', '✦ Not tried'));
   }
 
+  }
+
+  
+  function hoursText(r) {
+    if (!r.hours) return '';
+    var d = ['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()];
+    var v = r.hours[d] || '';
+    if (!v) return '⚪ Hours unavailable';
+    if (/^closed$/i.test(v.trim())) return '🔴 Closed today';
+    return '🕒 ' + v;
   }
 
   /* ---------- deck ---------- */
@@ -93,6 +104,7 @@
       c.appendChild(el('h2', '', r.name));
       var tg = el('div', 'tags'); tagsFor(r, tg); c.appendChild(tg);
       if (r.info) c.appendChild(el('p', 'info', r.info));
+      var ht = hoursText(r); if (ht) c.appendChild(el('p', 'hours ' + (ht.indexOf('🟢') >= 0 ? 'open' : 'unknown'), ht));
       if (depth === 0) { c.classList.add('top'); attachDrag(c, yes, no); }
       else {
         c.style.transform = 'translateY(' + (depth * 10) + 'px) scale(' + (1 - depth * 0.04) + ')';
@@ -218,7 +230,7 @@
     state.sheet = null; state.temp = null;
   }
 
-  var FACETS = [['meals', 'Meal'], ['cuisines', 'Cuisine'], ['areas', 'Area'], ['prices', 'Price'], ['been', 'Been'], ['occasions', 'Occasion']];
+  var FACETS = [['meals', 'Meal'], ['cuisines', 'Cuisine'], ['foods', 'Food'], ['areas', 'Area'], ['prices', 'Price'], ['been', 'Been'], ['occasions', 'Occasion']];
   function drawFilters() {
     var f = FF.facetsOf(state.all), body = $('filter-body'); body.innerHTML = '';
     FACETS.forEach(function (p) {
@@ -248,7 +260,7 @@
     $('filter-count').textContent = n + (n === 1 ? ' place matches' : ' places match');
     $('filter-apply').disabled = n === 0;
   }
-  function selCount(s) { return s.meals.length + s.cuisines.length + s.areas.length + s.occasions.length + s.prices.length + s.been.length; }
+  function selCount(s) { return s.meals.length + s.cuisines.length + s.foods.length + s.areas.length + s.occasions.length + s.prices.length + s.been.length; }
   function updateBadge() {
     var n = selCount(state.sel), b = $('filter-badge');
     b.textContent = n; b.hidden = n === 0;
@@ -259,7 +271,7 @@
   $('backdrop').onclick = function () { closeSheet(); };
   document.querySelectorAll('[data-close]').forEach(function (b) { b.onclick = function () { closeSheet(); }; });
   $('filter-clear').onclick = function () {
-    state.temp = { meals: [], cuisines: [], areas: [], occasions: [], prices: [], been: [] };
+    state.temp = { meals: [], cuisines: [], foods: [], areas: [], occasions: [], prices: [], been: [] };
     drawFilters();
   };
   $('filter-apply').onclick = function () {
@@ -295,7 +307,7 @@
       if (!list.length) { $('menu-msg').textContent = 'No restaurants found. The CSV needs a header row with a Name (or Title) column.'; return; }
       try { localStorage.setItem(KEY.data, String(rd.result)); } catch (x) {}
       setData(list, true);
-      state.sel = { meals: [], cuisines: [], areas: [], occasions: [], prices: [], been: [] }; save(KEY.sel, state.sel);
+      state.sel = { meals: [], cuisines: [], foods: [], areas: [], occasions: [], prices: [], been: [] }; save(KEY.sel, state.sel);
       drawMenu(); startRound();
       $('menu-msg').textContent = 'Imported ' + list.length + ' restaurants.';
     };

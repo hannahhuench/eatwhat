@@ -65,3 +65,5 @@ button.secondary,label.secondary{display:block;width:100%;text-align:center;bord
 .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 110px);transform:translateX(-50%);background:#2b2220;color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;z-index:30;max-width:90%;text-align:center}
 .tag.been{background:#eafaf2;color:#1c8a5a;border-color:#c9efdc}
 .tag.not-been{background:#fff3d8;color:#a66a00;border-color:#f4dc9b}
+
+.hours{margin:7px 0 0;font-size:13px}.hours.open{color:#18864b}.hours.unknown{color:#8a7c76}.tag.food{background:#fff7df;color:#996b00;border-color:#f2df9b}
