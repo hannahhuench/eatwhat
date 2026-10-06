@@ -1,17 +1,17 @@
 Title,Meal,Cuisine,Food,Area,Price,Occasion,Been,Note,Mon,Tue,Wed,Thu,Fri,Sat,Sun,Photo,URL
 Lookout Noodle,Lunch; Dinner,Chinese,Noodles,Tsim Sha Tsui,$$,,,,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,photos/lookout.jpg,https://www.google.com/maps/place/Lookout+Noodle/data=!4m2!3m1!1s0x340401c9d6a501f3:0xf91e146f174129cf
-Cleo's,Lunch; Dinner,Western,,Sheung Wan,$$$,,,,11:30-22:00,Closed,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,photos/cleo's.jpg,https://www.google.com/maps/place/Cleo's/data=!4m2!3m1!1s0x3404011febf4a7f1:0x7cab4b04efa0c377
+Cleo's,Light; Lunch; Dinner,Western; Cafe,,Sheung Wan,$$$,,,,11:30-22:00,Closed,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,11:30-22:00,photos/cleo's.jpg,https://www.google.com/maps/place/Cleo's/data=!4m2!3m1!1s0x3404011febf4a7f1:0x7cab4b04efa0c377
 aera,Lunch; Dinner,Western; Fine Dining,,Central,$$$$$,Date; Celebration,,,,,,,,,,photos/aera.jpg,https://www.google.com/maps/place/aera/data=!4m2!3m1!1s0x340401bf6b42691f:0x94286d2b9b3259c6
 629 Egg Waffle,Light,Street Food,雞蛋仔,San Po Kong,$,,,,,,,,,,,photos/629-egg-waffle.jpg,https://www.google.com/maps/place/629+Egg+Waffle/data=!4m2!3m1!1s0x340406d12e5bcc1f:0xd0201be90a7fd945
 The Spoon Focaccia,Lunch; Dinner,Italian,Focaccia,temp,$$,,,,,,,,,,,photos/the-spoon.jpg,https://www.google.com/maps/place/The+Spoon+Focaccia/data=!4m2!3m1!1s0x340401007f8c0adb:0xf94c361fc5b45933
 Chew Chew,Lunch; Dinner,Japanese,,temp,,,,,,,,,,,,photos/chew-chew.jpg,https://www.google.com/maps/place/Chew+Chew/data=!4m2!3m1!1s0x340401c5f32c8315:0xa27a331e32f5d8e2
-Comptoir,Lunch; Dinner,French; Wine Bar,,temp,,,,,,,,,,,,,https://www.google.com/maps/place/Comptoir/data=!4m2!3m1!1s0x3403ff90b1795c07:0xd5c18206bbda4465
-Jejusic,Lunch; Dinner,Korean,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/Jejusic/data=!4m2!3m1!1s0x340401002d90aec9:0xaf765104fa9cb0a
-All about NUTS,Lunch; Dinner; Light,Cafe,,To Kwa Wan,,,,,,,,,,,,,https://www.google.com/maps/place/All+about+NUTS/data=!4m2!3m1!1s0x3404010034005215:0xa5786ede77a97d7b
+Comptoir,Lunch; Dinner,French; Wine Bar,,temp,,,,,,,,,,,,photos/comptoir.jpg,https://www.google.com/maps/place/Comptoir/data=!4m2!3m1!1s0x3403ff90b1795c07:0xd5c18206bbda4465
+Jejusic,Lunch; Dinner,Korean,,Central,,,,,,,,,,,,photos/jejusic,https://www.google.com/maps/place/Jejusic/data=!4m2!3m1!1s0x340401002d90aec9:0xaf765104fa9cb0a
+All about NUTS,Lunch; Dinner; Light,Cafe,,To Kwa Wan,,,,,,,,,,,,photos/all-about-nuts,https://www.google.com/maps/place/All+about+NUTS/data=!4m2!3m1!1s0x3404010034005215:0xa5786ede77a97d7b
 IN SAENG PORK SOUP,Lunch; Dinner,Korean,,Central,,,,,,,,,,,,,https://www.google.com/maps/place/IN+SAENG+PORK+SOUP/data=!4m2!3m1!1s0x3404010070531775:0x800c00e02ea157e9
 知延食堂 Chi Yin Shokudo,Lunch; Dinner,Japanese,,Tsim Sha Tsui,,,,,,,,,,,,,https://www.google.com/maps/place/%E7%9F%A5%E5%BB%B6%E9%A3%9F%E5%A0%82+Chi+Yin+Shokudo/data=!4m2!3m1!1s0x340401df38e96beb:0x514ef200ea8a0627
-BÀRBAR,,Spanish,,Wan Chai,,,,,,,,,,,,,https://www.google.com/maps/place/B%C3%80RBAR/data=!4m2!3m1!1s0x3404018bdc00ab59:0x8e38bb92321be7e1
-ThongSmith Hong Kong,,Thai,,Wan Chai,,,,,,,,,,,,,https://www.google.com/maps/place/ThongSmith+Hong+Kong/data=!4m2!3m1!1s0x340401dcd24e9219:0xd4ccf527ae05285
+BÀRBAR,Lunch; Dinner,Spanish,,Wan Chai,,,,,,,,,,,,,https://www.google.com/maps/place/B%C3%80RBAR/data=!4m2!3m1!1s0x3404018bdc00ab59:0x8e38bb92321be7e1
+ThongSmith Hong Kong,Lunch; Dinner,Thai,,Wan Chai,,,,,,,,,,,,,https://www.google.com/maps/place/ThongSmith+Hong+Kong/data=!4m2!3m1!1s0x340401dcd24e9219:0xd4ccf527ae05285
 金氏炒碼麵 짬뽕짬뽕,,Korean,Noodles,Central,,,,,,,,,,,,,https://www.google.com/maps/place/%E9%87%91%E6%B0%8F%E7%82%92%E7%A2%BC%E9%BA%B5+%EC%A7%AC%EB%BD%95%EC%A7%AC%EB%BD%95/data=!4m2!3m1!1s0x340401003b0804c1:0xb8a25ec6ad81e663
 常聚麵家,,Chinese,Noodles,San Po Kong,,,,,,,,,,,,,https://www.google.com/maps/place/%E5%B8%B8%E8%81%9A%E9%BA%B5%E5%AE%B6/data=!4m2!3m1!1s0x340407004d23921f:0x4d657fb4cb4966e6
 TABIÀ,,Italian,,Mid-Levels,,,,,,,,,,,,,https://www.google.com/maps/place/TABI%C3%80/data=!4m2!3m1!1s0x3404007bab371911:0x737b8175ee0896ce
