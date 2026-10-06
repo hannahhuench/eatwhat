@@ -112,7 +112,18 @@
       c.appendChild(el('h2', '', r.name));
       var tg = el('div', 'tags'); tagsFor(r, tg); c.appendChild(tg);
       if (r.info) c.appendChild(el('p', 'info', r.info));
-      var hv = r.hours && r.hours[['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()]]; if (hv) c.appendChild(el('p', 'hours', '🕒 ' + hv));
+      var todayKey = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][new Date().getDay()];
+      var todayHours = r.hours && r.hours[todayKey];
+
+      if (!todayHours) {
+        c.appendChild(el('p', 'hours unknown', '⚪ Hours unavailable'));
+      } else if (/^closed$/i.test(todayHours.trim())) {
+        c.appendChild(el('p', 'hours closed', '🔴 Closed'));
+      } else if (isOpenNow(r)) {
+        c.appendChild(el('p', 'hours open', '🟢 Open'));
+      } else {
+        c.appendChild(el('p', 'hours closed', '🔴 Closed'));
+      }
       if (depth === 0) { c.classList.add('top'); attachDrag(c, yes, no); }
       else {
         c.style.transform = 'translateY(' + (depth * 10) + 'px) scale(' + (1 - depth * 0.04) + ')';
@@ -195,6 +206,28 @@
     $('res-name').textContent = r.name;
     var tg = $('res-tags'); tg.innerHTML = ''; tagsFor(r, tg);
     $('res-info').textContent = r.info || '';
+    var resultHours = $('res-hours');
+    if (resultHours) {
+      if (!r.hours) {
+        resultHours.textContent = '⚪ Hours unavailable';
+        resultHours.className = 'hours unknown';
+      } else {
+        var resultDay = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][new Date().getDay()];
+        var resultToday = r.hours[resultDay];
+
+        if (!resultToday || /^closed$/i.test(resultToday.trim())) {
+          resultHours.textContent = '🔴 Closed';
+          resultHours.className = 'hours closed';
+        } else if (isOpenNow(r)) {
+          resultHours.textContent = '🟢 Open';
+          resultHours.className = 'hours open';
+        } else {
+          resultHours.textContent = '🔴 Closed';
+          resultHours.className = 'hours closed';
+        }
+      }
+    }
+
     $('res-info').hidden = !r.info;
     var ph = $('res-photo'); ph.hidden = true; ph.removeAttribute('src');
     if (r.photo) {

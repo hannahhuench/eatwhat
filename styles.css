@@ -67,3 +67,20 @@ button.secondary,label.secondary{display:block;width:100%;text-align:center;bord
 .tag.not-been{background:#fff3d8;color:#a66a00;border-color:#f4dc9b}
 
 .hours{margin:7px 0 0;font-size:13px;color:#6f625d}.tag.food{background:#fff7df;color:#996b00;border-color:#f2df9b}
+.hours {
+  margin: 7px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hours.open {
+  color: #18864b;
+}
+
+.hours.closed {
+  color: #c43d35;
+}
+
+.hours.unknown {
+  color: #8a7c76;
+}
