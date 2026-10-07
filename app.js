@@ -60,6 +60,47 @@
     });
   }
 
+  function currentHoursText(r) {
+  var dayKey = [
+    'sun', 'mon', 'tue', 'wed',
+    'thu', 'fri', 'sat'
+  ][new Date().getDay()];
+
+  return r.hours && r.hours[dayKey]
+    ? r.hours[dayKey].trim()
+    : '';
+}
+
+function currentStatusText(r) {
+  var todayHours = currentHoursText(r);
+
+  if (!todayHours) {
+    return {
+      text: '⚪ Hours unavailable',
+      className: 'hours unknown'
+    };
+  }
+
+  if (/^closed$/i.test(todayHours)) {
+    return {
+      text: '🔴 Closed (' + todayHours + ')',
+      className: 'hours closed'
+    };
+  }
+
+  if (isOpenNow(r)) {
+    return {
+      text: '🟢 Open (' + todayHours + ')',
+      className: 'hours open'
+    };
+  }
+
+  return {
+    text: '🔴 Closed (' + todayHours + ')',
+    className: 'hours closed'
+  };
+}
+
   /* ---------- deck ---------- */
   function startRound() {
     var available = FF.filterRestaurants(state.all, state.sel, state.hidden);
@@ -112,18 +153,8 @@
       c.appendChild(el('h2', '', r.name));
       var tg = el('div', 'tags'); tagsFor(r, tg); c.appendChild(tg);
       if (r.info) c.appendChild(el('p', 'info', r.info));
-      var todayKey = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][new Date().getDay()];
-      var todayHours = r.hours && r.hours[todayKey];
-
-      if (!todayHours) {
-        c.appendChild(el('p', 'hours unknown', '⚪ Hours unavailable'));
-      } else if (/^closed$/i.test(todayHours.trim())) {
-        c.appendChild(el('p', 'hours closed', '🔴 Closed'));
-      } else if (isOpenNow(r)) {
-        c.appendChild(el('p', 'hours open', '🟢 Open'));
-      } else {
-        c.appendChild(el('p', 'hours closed', '🔴 Closed'));
-      }
+      var status = currentStatusText(r);
+      c.appendChild(el('p', status.className, status.text));
       if (depth === 0) { c.classList.add('top'); attachDrag(c, yes, no); }
       else {
         c.style.transform = 'translateY(' + (depth * 10) + 'px) scale(' + (1 - depth * 0.04) + ')';
@@ -208,26 +239,10 @@
     $('res-info').textContent = r.info || '';
     var resultHours = $('res-hours');
     if (resultHours) {
-      if (!r.hours) {
-        resultHours.textContent = '⚪ Hours unavailable';
-        resultHours.className = 'hours unknown';
-      } else {
-        var resultDay = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'][new Date().getDay()];
-        var resultToday = r.hours[resultDay];
-
-        if (!resultToday || /^closed$/i.test(resultToday.trim())) {
-          resultHours.textContent = '🔴 Closed';
-          resultHours.className = 'hours closed';
-        } else if (isOpenNow(r)) {
-          resultHours.textContent = '🟢 Open';
-          resultHours.className = 'hours open';
-        } else {
-          resultHours.textContent = '🔴 Closed';
-          resultHours.className = 'hours closed';
-        }
-      }
+      var resultStatus = currentStatusText(r);
+      resultHours.textContent = resultStatus.text;
+      resultHours.className = resultStatus.className;
     }
-
     $('res-info').hidden = !r.info;
     var ph = $('res-photo'); ph.hidden = true; ph.removeAttribute('src');
     if (r.photo) {
