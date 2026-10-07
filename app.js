@@ -38,9 +38,9 @@
     if (r.price) parent.appendChild(el('span', 'tag price', r.price));
     if (r.been === 'Yes') {
       parent.appendChild(el('span', 'tag been', '✓ Been here'));
-  } else if (r.been === 'No') {
+    } else if (r.been === 'No') {
       parent.appendChild(el('span', 'tag not-been', '✦ Not tried'));
-  }
+    }
 
   }
 
@@ -48,8 +48,15 @@
     return String(v || '').trim().split(/[;|]/).map(function (part) {
       var m = part.trim().match(/^(\d{1,2}):(\d{2})\s*[-–]\s*(\d{1,2}):(\d{2})$/);
       if (!m) return null;
-      var a=Number(m[1])*60+Number(m[2]), b=Number(m[3])*60+Number(m[4]);
-      return a>=0&&a<1440&&b>=0&&b<1440 ? {start:a,end:b} : null;
+      var a = Number(m[1]) * 60 + Number(m[2]);
+      var b = Number(m[3]) * 60 + Number(m[4]);
+
+      var validStart = a >= 0 && a < 1440;
+      var validEnd = b >= 0 && b <= 1440;
+
+      return validStart && validEnd
+        ? { start: a, end: b }
+        : null;
     }).filter(Boolean);
   }
   function isOpenNow(r) {
